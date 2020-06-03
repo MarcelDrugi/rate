@@ -1,6 +1,7 @@
 Rate
 =============
 A web application that allows you to view current and historical stock exchange rates.
+
 | **live:**  http://rate.pythonanywhere.com/
 
 
@@ -28,7 +29,7 @@ The way the frontend written in Angular is joined to the Django server may not b
 2) Make changes to the Angular project if you need
 3) Build Angular project and transfer dist directory to Django as a static files:
 
-`ng build --output-path ../../backend/rate/rates_server/static/scripts/  --resources-output-path ../../static`
+*`ng build --output-path ../../backend/rate/rates_server/static/scripts/  --resources-output-path ../../static`*
 
 4) Run Django localhost
 

@@ -21,8 +21,8 @@ The site has a simple backend created using Python frameworks: **Django** and **
 
 Django 3.0 and Angular 9 integration 
 ~~~~~~~~~~~~~~~~~~
-The way the frontend written in Angular is joined to the Django server may not be obvious.
-| Making changes requires building an application in Angular and transferring static files to the Django project directories
+The way the frontend written in Angular is joined to the Django server may not be obvious. Making changes requires building an application in Angular and transferring static files to the Django project directories
+
 | Work in development mode should look like this:
 
 1) Make changes to the Django project if you need

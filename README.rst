@@ -11,7 +11,7 @@ The following technologies were used to create the app:
 
 - **Angular 9** - framework będący podstawą całego projektu,
 - **D3Js** in version **4.0** - used to visualize historical data and used to build part of the animation on the website,
-- **Bulma & Bulma-Extensions & LESS** used to create styles,
+- **Bulma & Bulma-Extensions & LESS** used to create styles.
 
 
 Backend

@@ -1,0 +1,13 @@
+<div>
+  <div class="newsInfo">
+    <div class="newsInfo-head">Najnowsze wiadomości ze świata finansów</div>
+    <div class="newsInfo-sources">
+      CNN, CNBC, The Associated Press, Reuters oraz wiele innych portali i blogów o tematyce ekonomicznej.
+    </div>
+  </div>
+  <div *ngFor="let article of news; let i = index">
+    <div class="headline" [article]="article" rateNews *ngIf="article?.author && article?.content && article?.publishedAt && article?.source && article?.title && article?.url && article?.urlToImage">
+      <div class="articleTitle"> <span class="icon"></span>{{article.title}}</div>
+    </div>
+  </div>
+</div>

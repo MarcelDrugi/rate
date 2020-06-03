@@ -1,0 +1,358 @@
+@rect-color: rgb(39, 36, 36);
+@basicBackground: rgb(236, 236, 236);
+@timersBackground: rgb(218, 210, 210);
+@basicRedColor: rgb(201, 117, 117);
+@darkRedColor: rgb(177, 77, 77);
+@basicGreyColor: rgb(236, 236, 236);
+@basicShadowColor: rgb(104, 103, 103);
+@HoverLinkColor: rgb(255, 204, 204);
+@hoverLinkColor: rgb(80, 79, 79);
+@borderRadius: 0.4vw 0.4vw 0.4vw 0.4vw;
+@parametersLabelTopPadding: 0.7vh;
+@radioCheckedBorderColor: rgb(131, 97, 97);
+@buttonHoverColor: rgb(207, 200, 200);
+
+@font-face {
+  font-family: digital;
+  src: url(src/assets/font/digital-7.ttf) format("opentype");
+}
+
+.navbar {
+  border-radius: @borderRadius;
+}
+
+.navbar-shadow {
+  .navbar;
+  box-shadow: 1px 6px 6px 6px @basicShadowColor;
+}
+
+.navbar-item:hover {
+  color: @basicRedColor !important;
+  background-color: @hoverLinkColor !important;
+  text-decoration: underline;
+  font-size: large;
+}
+
+.infoBar {
+  position: relative;
+  height: 30px;
+  background-color: @timersBackground;
+  margin-top: 30px;
+  box-shadow: 1px 6px 6px 6px @basicShadowColor;
+}
+
+.infoBase {
+  margin-top: 2px;
+  position: absolute;
+  width: 26vw;
+  transform: translateX(120vw);
+}
+
+.infoEl0 {
+  .infoBase;
+}
+.infoEl1 {
+  .infoBase;;
+}
+.infoEl2 {
+  .infoBase;;
+}
+.infoEl3 {
+  .infoBase;
+}
+.infoEl4 {
+  .infoBase;
+}
+
+.topBarValue {
+  padding-left: 1vw;
+  color: @darkRedColor;
+  font-weight: bold;
+}
+
+.topBarSymbol {
+  padding: 3px 1px 3px 3px;
+  background-color: @basicRedColor;
+  border-radius: @borderRadius;
+  color: @rect-color;
+  font-weight: 500;
+}
+
+.go {
+  transform: translateX(-120%);
+  transition-timing-function: linear;
+  transition-duration: 12s;
+}
+
+.timers{
+  background-color: @timersBackground;
+  border-radius: @borderRadius;
+  box-shadow: 1px 8px 8px 8px @basicShadowColor;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.timer {
+  color: hsl(0, 0%, 21%);
+  font-size: 2.5vw;
+}
+
+.timer-timerLabel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2vw;
+}
+
+.timer-timerDate {
+  font-family: digital;
+  font-size: 2.7vw;
+}
+
+.hero {
+  height: 14vh;
+  position: relative;
+  //border-bottom: 2px inset @basicRedColor;
+  box-shadow: 1px 4px 4px 4px @basicShadowColor;
+}
+
+.hexa {
+  position: absolute;
+  width: 215px;
+  height: 115px;
+  right: 30px;
+  bottom: 0;
+  opacity: 0.4;
+  background-image: url(./../../assets/img/bars.png);
+}
+
+.flash {
+  background: @basicRedColor;
+  clip-path: polygon(
+    44.7% 100%,
+    47% 80%,
+    50% 85%,
+    55% 40%,
+    60% 70%,
+    69% 30%,
+    74% 40%,
+    82% 10%,
+    74% 36%,
+    69% 26%,
+    60% 66%,
+    55% 35%,
+    50% 80%,
+    47% 75%,
+    44% 100%
+  );
+
+  position: absolute;
+  //clip-path: polygon(0% 0%, 20% 0%, 20% 20%, 2% 20%);
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+}
+
+.bitcoin {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  right: 22%;
+  bottom: 0;
+  opacity: 0.4;
+  background-image: url(./../../assets/img/pngwing.png);
+}
+
+.parameters {
+  box-shadow: 1px 4px 4px 4px @basicShadowColor;
+  border-radius: @borderRadius;
+  margin-bottom: 2vh;
+}
+
+.parLabel {
+  display: inline-block;
+  padding-top: @parametersLabelTopPadding;
+  padding-right: 1vw;
+  font-size: large;
+  font-weight: 900;
+}
+
+select option {
+  color: @rect-color;
+  background-color: @basicGreyColor;
+}
+
+select option:hover {
+  color: @rect-color;
+  background-color: @basicRedColor;
+}
+
+select option:checked {
+  color: @basicGreyColor;
+  background-color: @rect-color;
+}
+
+select:not(.is-multiple) {
+  border: 2px solid @basicRedColor;
+  border-style: outset;
+  background-color: @basicGreyColor;
+}
+
+select:hover {
+  border: 3px solid @basicRedColor;
+
+}
+
+.select:after {
+  border-color: @basicRedColor !important;
+}
+
+.graphRadio {
+  position: absolute;
+  width: 2.1vh;
+  height: 2.1vh;
+  transform: translateY(60%);
+  z-index: 5;
+}
+
+.graphRadioLabel {
+  position: absolute;
+  width: 2.1vh;
+  height: 2.1vh;
+  border-radius: 999px;
+  background-color: transparent;
+  transform: translateY(60%);
+  z-index: 6;
+  cursor: pointer;
+  transition-duration: .5s;
+}
+
+.graphRadio:checked + .graphRadioLabel{
+  background-color: @basicRedColor;
+  border: 4px solid @radioCheckedBorderColor;
+}
+
+.graph {
+  position: relative;
+  box-shadow: 1px 8px 8px 8px @basicShadowColor;
+  border-radius: @borderRadius;
+  margin-bottom: 3vh;
+  height: 45vh;
+  width: 100%;
+}
+
+.child-content {
+  position: relative;
+  box-shadow: 2px 9px 8px 9px @basicShadowColor;
+  border-radius: @borderRadius;
+  height: 48vh;
+  width: 100%;
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+}
+
+.indexButtons {
+  margin-top: 2vh;
+  margin-bottom: 1.5vh;
+}
+
+.button {
+  background-color: @basicBackground;
+  width: 15vw;
+  box-shadow: 1px 2px 2px 2px @basicShadowColor;
+}
+
+.button:hover {
+  background-color: @buttonHoverColor;
+  color: black;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.button-clicked:hover {
+  background-color: @basicRedColor;
+  text-decoration: underline;
+}
+
+.button-clicked {
+  .button;
+  background-color: @basicRedColor;
+  color: black
+}
+
+.main {
+  position: relative;
+  min-height: 85vh;
+}
+
+.footer {
+  position: relative;
+  padding: 2vh;
+  background-color: rgb(54, 54, 54);
+}
+
+.footer .info {
+  z-index: 2;
+  color: @basicGreyColor;
+  font-size: small;
+}
+
+.footer .info a {
+  color: @basicGreyColor;
+}
+
+.footer .info a:hover {
+  color: @HoverLinkColor
+}
+
+.footer .project {
+  color: @basicGreyColor;
+  z-index: 2;
+}
+
+.footer .project a {
+  color: @basicGreyColor;
+}
+
+.footer .project a:hover {
+  color: @HoverLinkColor
+}
+
+.footer .project .gH{
+  width: 44px;
+  height: 44px;
+  background-image: url(./../../assets/img/gh.png);
+}
+
+.waveA {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background-image: url(./../../assets/img/wave.png);
+  animation: moveWaveA 48s linear infinite;
+}
+.waveB {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background-image: url(./../../assets/img/wave.png);
+  animation: moveWaveB 48s linear infinite;
+}
+
+@keyframes moveWaveA {
+  0% {background-position-x: 0vw;}
+  50% {background-position-x: 200vw;}
+  100% {background-position-x: 0vw;}
+}
+
+@keyframes moveWaveB {
+  0% {background-position-x: 200vw;}
+  50% {background-position-x: 0vw;}
+  100% {background-position-x: 200vw;}
+}

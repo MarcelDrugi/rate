@@ -1,0 +1,310 @@
+@slideTextColor: rgb(236, 236, 236);
+@basicRedColor: rgb(201, 117, 117);
+@darkRedColor: rgb(119, 8, 8);
+@slideLinkColor: rgb(236, 236, 236);
+@slideHoverLinkColor: rgb(158, 255, 166);
+@sliderShadow: rgb(39, 38, 38);
+@arrowColor: rgb(218, 208, 211);
+@radioFreeColor: rgb(199, 221, 218);
+@radioCheckedColor: rgb(75, 87, 82);
+@radioCheckedBorderColor: rgb(199, 214, 255);
+@basicShadowColor: rgb(104, 103, 103);
+
+@changeSlideTime: 1.8s;
+
+
+.img1 {
+  background-image: url("./../../../assets/img/black-and-white-business-chart-computer-241544.jpg");
+}
+.img2 {
+  background-image: url("./../../../assets/img/person-holding-silver-bitcoin-coin-1447418.jpg");
+}
+.img3 {
+  background-image: url("./../../../assets/img/stock-exchange-board-210607.jpg");
+}
+.img4 {
+  background-image: url("./../../../assets/img/blue-and-yellow-graph-on-stock-market-monitor-159888.jpg");
+}
+
+.slideHomeWrapper {
+  position: relative;
+}
+
+.slideHome {
+  width: 100%;
+  height: 66.5vh;
+  min-height: 520px;
+  transform: translateX(140%);
+  box-shadow: 1px 20px 20px 20px @sliderShadow;
+  position: absolute;
+  border-radius: 0.4vw 0.4vw 0.4vw 0.4vw;
+}
+
+.coverSlide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: @basicRedColor;
+  clip-path: polygon(0% 0%, 0% 100%, 52% 100%, 52% 93%, 45% 70%, 45% 0%);
+  animation: moveShape 1s;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.outRight {
+  transform: translateX(140%);
+  transition-duration: @changeSlideTime;
+}
+
+.outLeft {
+  transform: translateX(-140%);
+  transition-duration: @changeSlideTime;
+}
+
+.in {
+  transform: translateX(0%);
+  transition-duration: @changeSlideTime;
+}
+
+.textSlide h1 {
+  font-size: 44px;
+}
+
+
+.textSlide {
+  position: absolute;
+  color: @slideTextColor;
+  width: 35%;
+  height: 60%;
+  z-index: 2;
+  transform: translate(19%, 33%);
+  font-size: larger;
+}
+
+.linkSlide{
+  position: absolute;
+  width: 24%;
+  height: 7%;
+  transform: translate(105%, 1220%);
+  z-index: 3;
+  color: @slideLinkColor;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.linkSlide:hover {
+  color: @slideHoverLinkColor;
+}
+
+.arrow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  opacity: 0.65;
+}
+
+.arrow:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.arrowLeft {
+  .arrow;
+  background: @arrowColor;
+  clip-path: polygon(5% 0%, 0% 14%, 5% 28%, 5% 25%, 2% 14%, 5% 3%);
+  transform: translateX(0.5%) translateY(36%);
+}
+
+.arrowRight {
+  .arrow;
+  background: @arrowColor;
+  clip-path: polygon(0% 0%, 5% 14%, 0% 28%, 0% 25%, 3% 14%, 0% 3%);
+  transform: translateX(94.5%) translateY(36%);
+}
+
+.sliderControl {
+  position: absolute;
+  width: 100%;
+  margin-left: 3%;
+  margin-top: 2%;
+}
+
+.imgRadio {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 5;
+  transform: translateX(0%) translateY(60%);
+}
+
+.imgRadioLabel {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background-color: transparent;
+  transform: translateX(0%) translateY(60%);
+  z-index: 6;
+  cursor: pointer;
+  transition-duration: .4s;
+}
+
+.imgRadio:checked + .imgRadioLabel{
+  background-color: @radioCheckedColor;
+  border: 2px solid @radioCheckedBorderColor;
+}
+
+.newsLead {
+  position: relative;
+  margin-top: 73vh;
+  height: 7vh;
+  width: 50%;
+  margin-left: 25%;
+  border-radius: 0.4vw;
+  box-shadow: 1px 8px 8px 8px @basicShadowColor;
+  text-align: center;
+}
+
+.newsLead-text {
+  padding-top: 0.8vh;
+  font-size: xx-large;
+  color: @basicRedColor;
+  font-weight: 700;
+}
+
+.dot {
+  height: 2.2vh;
+  width: 2.2vh;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  animation: blinkDot 1.5s linear infinite;
+  margin-right: 1vw;
+  margin-bottom: 0.09vh;
+}
+
+.newsWrapper {
+  position: relative;
+  margin-top: 3vh;
+}
+
+.bigNews {
+  position: relative;
+  height: 41.5vh;
+  border-radius: 0.4vw;
+  box-shadow: 1px 6px 6px 6px  @basicShadowColor;
+  border: 3px double grey;
+}
+
+.smallNews {
+  position: relative;
+  height: 19vh;
+  border-radius: 0.4vw;
+  margin-bottom: 2vw;
+  box-shadow: 1px 6px 6px 6px @basicShadowColor;
+  border: 3px double grey;
+}
+
+.articleTitle {
+  font-size: large;
+  font-weight: 500;
+}
+
+.bigNews img {
+  width: 40%;
+  max-height: 36%;
+  margin-top: 2.4vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  border-radius: 0.4vw;
+}
+
+.articleImg {
+  float: left;
+}
+
+.bigNews .articleTitle {
+  margin-right: 1vw;
+  margin-left: 1vw;
+  margin-top: 3px;
+}
+
+.bigNews .articleAuthorLabel {
+  margin-left: 1vw;
+}
+
+.bigNews .content {
+  margin-top: 2vh;
+  margin-right: 1vw;
+  margin-left: 1vw;
+  font-size: medium;
+}
+
+.bigNews .articleAuthor {
+  font-weight: 600;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
+.bigNews .link {
+  margin-top: 2vh;
+  margin-right: 1vw;
+  margin-left: 1vw;
+  color: @basicRedColor;
+  text-decoration: underline;
+}
+
+.smallNews > .articleTitle {
+  margin-left: 1vw;
+  padding-top: 5px;
+}
+
+.smallNews img {
+  height: 55%;
+  margin-top: 5px;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  border-radius: 0.4vw;
+}
+
+.smallNews .content {
+  margin-top: 4vh;
+}
+
+.smallNews .articleAuthor {
+  font-weight: 600;
+}
+
+.newsFooter{
+  height: 7vh;
+  width: 30%;
+  border-radius: 0.4vw;
+  box-shadow: 1px 8px 8px 8px @basicShadowColor;
+  margin-left: 70%;
+  margin-bottom: 2vh;
+  color: @basicRedColor;
+  text-align: center;
+  cursor: pointer;
+}
+
+.newsFooter-text {
+  font-weight: 600;
+  font-size: x-large;
+  padding-top: 1.5vh;
+}
+
+.newsFooter:hover {
+  color: @darkRedColor;
+}
+
+@keyframes moveShape {
+	0% { clip-path: polygon(0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%); }
+  100% { clip-path: polygon(0% 0%, 0% 100%, 52% 100%, 52% 93%, 45% 70%, 45% 0%); }
+}
+
+@keyframes blinkDot {
+  0% {background-color: rgb(240, 0, 0);}
+  50% {background-color: rgb(53, 20, 20);}
+  100% {background-color: rgb(240, 0, 0);}
+}

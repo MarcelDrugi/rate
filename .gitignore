@@ -1,0 +1,48 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+frontend/rate/tmp
+frontend/rate/out-tsc
+# Only exists if Bazel was run
+frontend/rate/bazel-out
+
+# dependencies
+frontend/rate/node_modules
+
+# profiling files
+frontend/ratechrome-profiler-events*.json
+frontend/ratespeed-measure-plugin*.json
+
+# IDEs and editors
+frontend/rate/.idea
+frontend/rate.project
+frontend/rate.classpath
+frontend/rate.c9/
+frontend/rate*.launch
+frontend/rate.settings/
+frontend/rate*.sublime-workspace
+
+# IDE - VSCode
+frontend/rate.vscode/*
+frontend/rate!.vscode/settings.json
+frontend/rate!.vscode/tasks.json
+frontend/rate!.vscode/launch.json
+frontend/rate!.vscode/extensions.json
+frontend/rate.history/*
+
+# misc
+frontend/rate/.sass-cache
+frontend/rate/connect.lock
+frontend/rate/coverage
+frontend/rate/libpeerconnection.log
+frontend/ratenpm-debug.log
+frontend/rateyarn-error.log
+frontend/ratetestem.log
+frontend/rate/typings
+
+# System Files
+frontend/rate.DS_Store
+frontend/rateThumbs.db
+
+#backend
+backend/venv

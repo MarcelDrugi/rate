@@ -1,0 +1,32 @@
+<div class="contentWrap">
+  <div class="cryptoBackground"></div>
+  <div *ngIf="info" class="columns allWrap">
+    <div class="logoWrap column is-6">
+      <img class="logo" src={{info.image}} alt="BRAK LOGO">
+    </div>
+    <div class="cryptoData column is-6">
+      <table class = "table">
+        <tr>
+          <td><span class="cryptoLabel">Nazwa:</span></td><td>{{info.name}}</td>
+        </tr>
+        <tr>
+          <td><span class="cryptoLabel">Czas "blokowania":</span></td> <td>{{info.blockTime}}min</td>
+        </tr>
+        <tr>
+          <td><span class="cryptoLabel">Data powstania:</span></td> <td>{{info.genesisDate}}</td>
+        </tr>
+        <tr>
+          <td><span class="cryptoLabel">Aktualna cena (USD):</span></td> <td>{{info.priceUSD}}</td>
+        </tr>
+        <tr>
+          <td><span class="cryptoLabel">Aktualna cena (PLN):</span></td> <td>{{info.pricePLN}}</td>
+        </tr>
+        <tr>
+          <td><span class="cryptoLabel">Oficjalna strona:</span></td> <td><a href={{info.homepage}}>{{info.homepage}}</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="descriptionLabel">Opis:</div>
+  <div class="description" [innerHTML]="info.description | slice:0:400"></div>
+</div>

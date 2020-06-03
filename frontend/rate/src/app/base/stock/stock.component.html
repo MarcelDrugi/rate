@@ -1,0 +1,60 @@
+<div *ngIf="stockError" class="has-text-centered">
+  <h1>PRZECIĄŻENIE</h1>
+  <h3>ZWOLNIJ PROSZĘ!</h3>
+  Aplikacja korzysta z darmowych API posiadających limity<br>
+  żądań na minutę. Odczekają kilkadziesiąt sekund i odświerz<br>
+  aby kontynuować.<br>
+  Możesz także w tym czasie przejrzeć inne zakładki. Większość działów <br>
+  korzysta z osobnych źródeł.
+</div>
+<div class="contentWrap">
+  <div class="companyInfo columns" *ngIf="info && !stockError">
+    <div class="infoBackground"></div>
+    <div class="logoWrap column is-5">
+      <img class="logo" src={{info.logo}} alt="BRAK LOGO">
+    </div>
+    <div class="companyData column is-7">
+      <table class = "table">
+        <tbody>
+          <tr>
+            <td><span class="compLabel">Nazwa:</span></td> <td><span class="value">{{info.name}}</span></td>
+          </tr>
+          <tr>
+            <td><span class="compLabel">Giełda:</span></td> <td><span class="value">{{info.exchange}}</span></td>
+          </tr>
+          <tr>
+            <td><span class="compLabel">Sektor:</span></td> <td><span class="value">{{info.finnhubIndustry}}</span></td>
+          </tr>
+          <tr>
+            <td><span class="compLabel">Kapitalizacja:</span></td> <td><span class="value">{{info.marketCapitalization}} tys. $</span></td>
+          </tr>
+          <tr>
+            <td><span class="compLabel">Debiut na giełdzie:</span></td> <td><span class="value">{{info.ipo}}</span></td>
+          </tr>
+          <tr>
+            <td><span class="compLabel">Strona internetowa:</span></td> <td><a href={{info.weburl}}><span class="value">{{info.weburl}}</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  &nbsp;* Notowania od poniedziałku do piątku w godzinach 7:00 - 20:00 (NYSE) lub 04:00 - 19:00 (NASDAQ) czasu nowojorskiego.
+  <div class="importantTitle has-text-centered"><h3>AKCJE NAJWIĘKSZYCH SPÓŁEK:</h3></div>
+  <div class="imporantStocks columns" *ngIf="prices">
+    <div class="column is-4">
+      <div *ngFor="let price of prices; let i = index">
+        <div *ngIf="i<2"><span class="shortcut">{{shortcuts[i+1]}}:</span><span class="value">{{price?.c | number : '1.2'}}$</span><span class="dot"></span></div>
+      </div>
+    </div>
+    <div class="column is-4">
+      <div *ngFor="let price of prices; let i = index">
+        <div *ngIf="i>=2 && i<4"><span class="shortcut">{{shortcuts[i+1]}}:</span><span class="value">{{price?.c | number : '1.2'}}$</span><span class="dot"></span></div>
+      </div>
+    </div>
+    <div class="column is-4">
+      <div *ngFor="let price of prices; let i = index">
+        <div *ngIf="i>=4"><span class="shortcut">{{shortcuts[i+1]}}:</span><span class="value">{{price?.c | number : '1.2'}}$</span><span class="dot"></span></div>
+      </div>
+    </div>
+  </div>
+</div>

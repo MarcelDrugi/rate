@@ -1,0 +1,15 @@
+<div *ngIf="info" class="contentWrap">
+  <div class="content">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><span class="label">Nazwa:</span></td><td><span class="value">{{info['data'][0]?.name}}</span></td>
+        </tr>
+        <tr>
+          <td><span class="label">Funfusz notowany na giełdach:</span></td> <td><span *ngFor="let el of info['data']" class="value">{{el.exchange}}, </span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="exhInfo"> * ETFy notowane od poniedziałku do piątku w podstawowych godzinach dla giełdy <b>NYSE</b>, 09:30 - 16:00 czasu nowojorskiego. </div>
+</div>

@@ -1,0 +1,55 @@
+@basic-background: rgb(236, 236, 236);
+@basic-color: rgb(12, 16, 20);
+@hooverBar-color:  rgb(121, 27, 58);
+@bar-color: rgb(40, 40, 63);
+@basicRedColor: rgb(201, 117, 117);
+
+.basic {
+  /deep/.bar {
+    fill: @bar-color;
+  }
+}
+.hooverBar {
+  background-color: rgb(141, 187, 179);
+  /deep/.activeBar {
+    fill: @hooverBar-color;
+  }
+  /deep/.bigBar {
+    fill: rgb(67, 55, 83);
+    stroke: rgb(0, 0, 0);
+  }
+  /deep/.bigBarText {
+    fill: rgb(205, 215, 248);
+  }
+}
+
+.price {
+  position: relative;
+  height: 15%;
+  font-size: x-large;
+  font-weight: 500;
+}
+
+.priceValue{
+  color: @basicRedColor;
+}
+
+.canvaVol{
+  position: relative;
+  background-color: @basic-background;
+  color: @basic-color;
+  color: @basic-color;
+  .basic;
+}
+
+.canva-hooverBar {
+  .hooverBar;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 20px;
+}

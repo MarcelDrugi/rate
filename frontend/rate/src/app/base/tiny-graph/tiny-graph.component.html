@@ -1,0 +1,19 @@
+<div *ngIf="pageLoader < 3" class="pageloader is-active is-dark is-bottom-to-top">
+  <span class="title">ŁADUJĘ STRONĘ . . .</span>
+</div>
+
+<div class="tinyGraphBar level">
+  <div *ngFor="let item of [].constructor(100); let i = index;" [ngClass]="'bigRect' + i"></div>
+  <div class="level-item has-text-centered">
+    <div [routerLink]="['/stock']" class="miniCanva canva1"></div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div [routerLink]="['/etf']" class="miniCanva canva2"></div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div [routerLink]="['/crypto']" class="miniCanva canva3"></div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div [routerLink]="['/currency']" class="miniCanva canva4"></div>
+  </div>
+</div>

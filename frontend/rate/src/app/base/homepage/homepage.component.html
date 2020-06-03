@@ -1,0 +1,113 @@
+
+<div class="slideHomeWrapper">
+  <div class="columns sliderControl">
+    <div class="column is-4"></div>
+    <div class="column is-1">
+      <input type="radio" id="slide1" name="slider" class="imgRadio" (ngModelChange)="radioChangeImg($event)" [(ngModel)]="radioIndex" [value]=0 >
+      <label for="slide1" class="imgRadioLabel"></label>
+    </div>
+    <div class="column is-1">
+      <input type="radio" id="slide2" name="slider" class="imgRadio" (ngModelChange)="radioChangeImg($event)" [(ngModel)]="radioIndex" [value]=1 >
+      <label for="slide2" class="imgRadioLabel"></label>
+    </div>
+    <div class="column is-1">
+      <input type="radio" id="slide3" name="slider" class="imgRadio" (ngModelChange)="radioChangeImg($event)" [(ngModel)]="radioIndex" [value]=2 >
+      <label for="slide3" class="imgRadioLabel"></label>
+    </div>
+    <div class="column is-1">
+      <input type="radio" id="slide4" name="slider" class="imgRadio" (ngModelChange)="radioChangeImg($event)" [(ngModel)]="radioIndex" [value]=3 >
+      <label for="slide4" class="imgRadioLabel"></label>
+    </div>
+  </div>
+    <div class="column is-4"></div>
+
+    <div [class]="imgClass[0] + ' img1'">
+      <div class="coverSlide"></div>
+      <div class="textSlide">
+          <h1><b>AKCJE</b></h1><br>
+          Kursy największych spółek notowanych
+          na głównych amerykańskich giełdach.
+          Większość z prezentowanych firm posiada akcje notowane
+          na giełdach <i>New York Stock Exchange</i>
+          (tzw. <i>Wall Street</i>) lub <i>Nasdaq Global Select</i>.
+          Standardowo sesje mają miejsce od poniedziałku do piątku w godzinach
+          od 09:30 do 16:00 czasu nowojorskiego.
+          Zestawnie zawiere również notowania pre-sesji.
+
+      </div>
+      <div [routerLink]="['/stock']" class="linkSlide"><b><u>ŚLEDŹ NOTOWANIA</u></b></div>
+      <div (click)="changeImg(true)" class="arrow arrowRight"></div>
+    </div>
+    <div [class]="imgClass[1] + ' img2'">
+      <div class="coverSlide"></div>
+      <div class="textSlide">
+          <h1><b>KRYPTOWALUTY</b></h1><br>
+          Bitcoin, Ethereum, EOS i inne najważniejsze cyfrowe waluty.
+          Kursy denominowane w dolarze ametykańskim dostępne wraz z
+          wolumenami pozwalającymi śledzić wielkość obrotów. Kursy kryptowalut
+          notowane są 24 godziny na dobę.
+      </div>
+      <div [routerLink]="['/crypto']" class="linkSlide"><b><u>ŚLEDŹ KURSY</u></b></div>
+      <div (click)="changeImg(false)" class="arrow arrowLeft"></div>
+      <div (click)="changeImg(true)" class="arrow arrowRight"></div>
+    </div>
+    <div [class]="imgClass[2] + ' img3'">
+      <div class="coverSlide"></div>
+      <div class="textSlide">
+          <h1><b>WALUTY</b></h1><br>
+          Kursy najważniejszych globalnych walut oraz metali szlachetnych (złota i srebra)
+          notowane od poniedziałku do piątku przez całą dobę. Dane historyczne dostępne od
+          połowy 2016 roku.
+      </div>
+      <div [routerLink]="['/commodities']" class="linkSlide"><b><u>AKTUALNE CENY</u></b></div>
+      <div (click)="changeImg(false)" class="arrow arrowLeft"></div>
+      <div (click)="changeImg(true)" class="arrow arrowRight"></div>
+    </div>
+    <div [class]="imgClass[3] + ' img4'">
+      <div class="coverSlide"></div>
+      <div class="textSlide">
+          <h1><b>ETF</b></h1><br>
+          Popularne ETFy (Exchange-traded funds) czyli fundusze pasywnie zarządzane notowane na
+          giełdzie NYSY. Aktualne notowania od poniedziałku do piątku w godzinach 9:30 - 16:00
+          czasu wschodnioamerykańskiego. Dostęp do danych historycznych od stycznia 2013 roku.
+
+      </div>
+      <div [routerLink]="['/stockindex']" class="linkSlide"><b><u>IDŹ DO NOTOWAŃ</u></b></div>
+      <div (click)="changeImg(false)" class="arrow arrowLeft"></div>
+    </div>
+</div>
+<div class="newsLead"> <div class="newsLead-text"><span class="dot"></span>Najnowsze wiadomości: </div></div>
+<div class="newsWrapper columns">
+  <div *ngIf="news" class="column is-6">
+    <div class="bigNews">
+      <div class="articleTitle"> {{news[0]?.title | slice:0:113}} </div>
+      <img src={{news[0]?.urlToImage}} class="articleImg">
+      <div class="content">{{news[0]?.content}}</div>
+      <div>
+        <span class="articleAuthorLabel">Tekst autorstwa:</span> <span class="articleAuthor">{{news[0]?.author}}</span>
+      </div>
+      <div class='link'> <a href={{news[0]?.url}}> Czytaj artykuł na portalu {{news[0]?.source.name}}</a></div>
+    </div>
+  </div>
+  <div class="column is-6">
+    <div *ngIf="news" class="smallNews up">
+      <div class="articleTitle"> {{news[1]?.title | slice:0:113}} </div>
+      <img src={{news[1]?.urlToImage}} class="articleImg">
+      <div class="content">
+        Tekst autorstwa: <span class="articleAuthor">{{news[1]?.author}}</span> <br>
+        <a href={{news[1]?.url}}> Czytaj artykuł na portalu {{news[1]?.source.name}}</a>
+      </div>
+    </div>
+    <div *ngIf="news" class="smallNews down">
+      <div class="articleTitle"> {{news[2]?.title | slice:0:113}} </div>
+      <img src={{news[2]?.urlToImage}} class="articleImg">
+      <div class="content">
+        Tekst autorstwa: <span class="articleAuthor">{{news[2]?.author}}</span> <br>
+        <a href={{news[2]?.url}}> Czytaj artykuł na portalu {{news[2]?.source.name}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="newsFooter">
+  <div [routerLink]="['/news']" class="newsFooter-text">WIĘCEJ WIADOMOŚCI</div>
+</div>

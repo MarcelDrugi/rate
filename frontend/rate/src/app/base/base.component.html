@@ -1,0 +1,139 @@
+<section class="hero is-dark">
+  <div class="flash"></div>
+  <div class="hexa"></div>
+  <div class="bitcoin"></div>
+  <div class="dolar"></div>
+  <div class="hero-body">
+
+      <div class="columns">
+        <div class="column is-1 dot">
+          <div class="cavaBigDot"></div>
+        </div>
+        <div class="column is-5">
+          <h2 class="title">Notowania giełgowe na żywo </h2>
+        </div>
+      </div>
+
+  </div>
+</section>
+<section class="infoBar">
+ <div [class]="runningBarClass[0]"><span class="topBarSymbol">{{topBarPrices[0]?.symbol}}({{topBarPrices[0]?.primaryExchange}}) </span> <span class="topBarValue">{{topBarPrices[0]?.latestPrice | number : '1.2'}}$</span></div>
+ <div [class]="runningBarClass[1]"><span class="topBarSymbol">{{topBarPrices[1]?.symbol}}({{topBarPrices[1]?.primaryExchange}}) </span> <span class="topBarValue">{{topBarPrices[1]?.latestPrice | number : '1.2'}}$</span></div>
+ <div [class]="runningBarClass[2]"><span class="topBarSymbol">{{topBarPrices[2]?.symbol}}({{topBarPrices[2]?.primaryExchange}}) </span> <span class="topBarValue">{{topBarPrices[2]?.latestPrice | number : '1.2'}}$</span></div>
+ <div [class]="runningBarClass[3]"><span class="topBarSymbol">{{topBarPrices[3]?.symbol}}({{topBarPrices[3]?.primaryExchange}}) </span> <span class="topBarValue">{{topBarPrices[3]?.latestPrice | number : '1.2'}}$</span></div>
+ <div [class]="runningBarClass[4]"><span class="topBarSymbol">{{topBarPrices[4]?.symbol}}({{topBarPrices[4]?.primaryExchange}}) </span> <span class="topBarValue">{{topBarPrices[4]?.latestPrice | number : '1.2'}}$</span></div>
+</section>
+<header class="section">
+  <nav [class]="navbarClass" role="navigation">
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" [routerLink]="['']">Strona główna</a>
+        <a class="navbar-item" [routerLink]="['/stock']">Akcje</a>
+        <a class="navbar-item" [routerLink]="['/crypto']">Kryptowaluty</a>
+        <a class="navbar-item" [routerLink]="['/currency']">Pary walutowe</a>
+        <a class="navbar-item" [routerLink]="['/etf']">ETF</a>
+        <a class="navbar-item" [routerLink]="['/stockindex']">Indeksy</a>
+        <a class="navbar-item newsItem" [routerLink]="['/news']">Wiadomości</a>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" [routerLink]="['/about']">O stronie</a>
+      </div>
+    </div>
+  </nav>
+  <div *ngIf="contentType != 'about'" class="timers level">
+    <div class="level-item has-text-centered">
+      <div>
+        <span class="timer timer-timerLabel"><b>WARSZAWA</b></span><br>
+        <span class="timer timer-timerDate">{{warsawTime | date: "HH:mm:ss"}}</span>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <span class="timer timer-timerLabel"><b>NOWY JORK</b></span><br>
+        <span class="timer timer-timerDate">{{newYorkTime | date: "HH:mm:ss"}}</span>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <span class="timer timer-timerLabel"><b>LONDYN</b></span><br>
+        <span class="timer timer-timerDate">{{londonTime | date: "HH:mm:ss"}}</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="contentType == 'homepage'">
+    <rate-tiny-graph></rate-tiny-graph>
+  </div>
+</header>
+<main class="main">
+  <div class="container">
+    <div [hidden]="contentType == 'about'">
+      <div [hidden]="contentType == 'homepage' || contentType == 'news'" >
+        <div class="parameters columns">
+          <div class="column is-4 has-text-centered">
+            <span class="parLabel">Wybierz okres: </span>
+            <div class="select">
+              <select [(ngModel)]="displayRange" (ngModelChange)="submitRangeShortcut(false)">
+                <option value="full">Całość</option>
+                <option value="1hour">Ostatni miesiąc</option>
+                <option value="15min">Ostatni tydzień</option>
+                <option value="1min">Dzisiaj</option>
+              </select>
+            </div>
+          </div>
+          <div *ngIf="contentType != 'index' && contentType != 'homepage'"  class="column is-4 has-text-centered">
+            <span class="parLabel">Wybierz podmiot</span>
+            <div class="select">
+            <select [(ngModel)]="shortcut" (ngModelChange)="submitRangeShortcut(true)">
+              <option *ngFor="let company of shortcuts" [value]="company">{{company}}</option>
+            </select>
+            </div>
+          </div>
+          <div class="column is-4 has-text-centered">
+            <div *ngIf="contentType == 'stock' || contentType == 'index' || contentType == 'etf' || contentType == 'crypto'" class="columns">
+              <div class="column is-5">
+                <span class="parLabel">Kurs </span>
+                <input class="graphRadio" id="priceRadio" name="volPrc" type="radio" (ngModelChange)="submitType($event)" value="price" [(ngModel)]="volumePrice">
+                <label for="priceRadio" class="graphRadioLabel"></label>
+              </div>
+              <div class="column is-5">
+                <span class="parLabel">Wolumen </span>
+                <input class="graphRadio" id="volumeRadio" name="volPrc" type="radio" (ngModelChange)="submitType($event)" value="volume" [(ngModel)]="volumePrice">
+                <label for="volumeRadio" class="graphRadioLabel"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="contentType == 'index'" class="columns indexButtons">
+          <div *ngFor="let company of shortcuts; let i = index" class="column is-3 has-text-centered">
+            <button *ngIf="i==0"  id={{i}} (click)="changeIndex(company, i)" class="button is-medium button-clicked">{{company}}</button>
+            <button *ngIf="i>0" id={{i}} (click)="changeIndex(company, i)" class="button is-medium">{{company}}</button>
+          </div>
+        </div>
+      </div>
+      <div [hidden]="contentType == 'homepage' || contentType == 'about' || contentType == 'news'" class="graph">
+        <rate-cost [hidden]="graphType!='price'"></rate-cost>
+        <rate-volume [hidden]="graphType!='volume'"></rate-volume>
+      </div>
+    </div>
+    <div class="container">
+      <div [class]="childContentClass">
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
+      </div>
+    </div>
+  </div>
+</main>
+<section class="footer">
+  <div class="waveA"></div>
+  <div class="waveB"></div>
+  <div class="level">
+    <div class="level-left info">
+      Informację o API wykorzystywanych przez stronę znajdziesz w zakładce &nbsp;
+      <a [routerLink]="['/about']"><b>O stronie.</b></a>
+      &nbsp; Notowania aktualizowane co minutę.
+    </div>
+    <div class="level-right project">
+      <span class="gH"></span> &nbsp; &nbsp;
+      <a href="https://github.com/MarcelDrugi/rate"><b>MarcelDrugi/Rate</b></a>
+    </div>
+  </div>
+</section>

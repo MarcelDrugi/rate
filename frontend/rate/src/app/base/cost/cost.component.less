@@ -1,0 +1,74 @@
+@basic-background: rgb(236, 236, 236);
+@basic-color: rgb(12, 16, 20);
+@hooverPoint-color: rgb(121, 27, 58);
+@basicRedColor: rgb(201, 117, 117);
+
+.basic {
+  /deep/.line {
+    fill: none;
+    stroke: #676780;
+    stroke-width: 3;
+  }
+  /deep/.area {
+    fill: lightsteelblue;
+  }
+  /deep/.dot {
+    fill: rgb(40, 40, 63);
+  }
+  /deep/.pointer {
+    stroke: rgb(117, 93, 109);
+    stroke-dasharray: 5;
+  }
+  /deep/.labelP {
+    fill: rgb(136, 166, 175);
+    stroke: rgb(50, 50, 129)
+  }
+}
+
+.price {
+  position: relative;
+  height: 15%;
+  font-size: x-large;
+  font-weight: 500;
+}
+
+.priceValue{
+  color: @basicRedColor;
+}
+
+.hoverPoint {
+  background-color: rgb(141, 187, 179);
+  /deep/.activeDot {
+    fill: @hooverPoint-color;
+  }
+  /deep/.line {
+    stroke-width: 4;
+  }
+  /deep/.bigDot {
+    fill: rgb(67, 55, 83);
+    stroke: rgb(0, 0, 0);
+  }
+  /deep/.bigDotText {
+    fill: rgb(205, 215, 248);
+  }
+}
+
+.canvaPrice{
+  position: relative;
+  background-color: @basic-background;
+  color: @basic-color;
+  font-size: 16px;
+  .basic;
+}
+
+.canvaPrice-hoverPoint {
+  .hoverPoint;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 20px;
+}

@@ -1,0 +1,85 @@
+@basicRedColor: rgb(201, 117, 117);
+@basicBackground: rgb(236, 236, 236);
+@tableRowEColor: rgb(194, 193, 193);
+
+.currTitle {
+  position: relative;
+  font-size: x-large;
+  font-weight: 600;
+  margin-top: 1px;
+}
+
+.currSubTitle {
+  font-size: large;
+  font-weight: 600;
+  padding-left: 1%;
+}
+
+.currSubTitle-value {
+  .currSubTitle;
+  color: @basicRedColor;
+}
+
+.currSubTitle-label {
+  .currSubTitle;
+  text-decoration: underline;
+}
+
+.mainContent {
+  position: relative;
+  height: 73%;
+  width: 98%;
+  padding-left: 1%;
+  padding-top: 1vh;
+  overflow: auto;
+}
+
+.table {
+  width: 99%;
+}
+
+.table tr:nth-child(odd) {
+  background-color: @tableRowEColor;
+}
+
+.table tr:nth-child(even) {
+  background-color: @basicBackground;
+}
+
+.table .key {
+  font-weight: 500;
+  margin-right: 1vw;
+}
+
+.table .value {
+  color: @basicRedColor;
+}
+
+.table td:hover{
+  font-weight: 900 !important;
+}
+
+.exhInfo {
+  position: relative;
+  padding-left: 1vw;
+  margin-top: 2vh;
+  margin-bottom: 1px;
+}
+
+.dot {
+  height: 18px;
+  width: 18px;
+  margin-top: 1px;
+  margin-left: 1.2vw;
+  margin-right: 0.8vw;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  animation: blinkDot 1.5s linear infinite;
+}
+
+@keyframes blinkDot {
+  0% {background-color: rgb(240, 0, 0);}
+  50% {background-color: rgb(53, 20, 20);}
+  100% {background-color: rgb(240, 0, 0);}
+}

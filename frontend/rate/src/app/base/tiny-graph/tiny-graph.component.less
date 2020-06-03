@@ -1,0 +1,73 @@
+@basic-background: rgb(236, 236, 236);
+@graphsBar-background: rgb(210, 210, 214);
+@basic-color: rgb(12, 16, 20);
+@rect-color: rgb(171, 171, 179);
+@miniCanvaHeight: 19vh;
+@miniCanvaWidht: 22vw;
+@bigRect: bigRect;
+
+.basic {
+  /deep/.line {
+    fill: none;
+    stroke: #061314;
+    stroke-width: 2;
+  }
+  /deep/.area {
+    fill: rgb(87, 99, 116);
+  }
+}
+
+.miniCanva{
+  background-color: transparent;
+  color: @basic-color;
+  width: @miniCanvaWidht;
+  height: @miniCanvaHeight;
+  z-index: 2;
+  cursor: pointer;
+  .basic;
+}
+
+.tinyGraphBar {
+  background-color: @basic-background;
+  border-radius: 0.4vw 0.4vw 0.4vw 0.4vw;
+  position: relative;
+  .loop(100);
+  box-shadow:8px 8px 8px 8px rgb(104, 103, 103);
+  border-bottom: 2px solid rgb(209, 208, 208);
+}
+
+.miniCanva:hover {
+  animation: shake 0.65s;
+  animation-iteration-count: infinite;
+}
+
+.loop(@i) when (@i >= 0) {
+  .loop((@i - 1));
+  .@{bigRect}@{i} {
+    width: 1vw;
+    height: @miniCanvaHeight/2;
+    background: @rect-color;
+    bottom: 0;
+    left: @i*1%;
+    z-index: 1;
+    opacity: 0.3;
+    animation: moveRect 2s + mod(@i, 12);
+    position: absolute;
+    animation-iteration-count: infinite;
+    }
+}
+
+@keyframes moveRect {
+	0% { height: @miniCanvaHeight/2 }
+  25% { height: 1vh}
+  50% { height: @miniCanvaHeight/3 }
+  75% { height: @miniCanvaHeight * 0.9 }
+  100% { height: @miniCanvaHeight/2 }
+}
+
+@keyframes shake {
+  0% { transform: translateY(-13%) rotate(1.6deg) scale(1.25); }
+  50% { transform: translateY(-13%) rotate(-1.6deg) scale(1.25); }
+  100% { transform: translateY(-13%) rotate(1.6deg) scale(1.25); }
+
+}

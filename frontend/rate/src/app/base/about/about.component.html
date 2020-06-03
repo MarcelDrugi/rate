@@ -1,0 +1,42 @@
+<div class="aboutWrap">
+  <div class="about">
+    <h1 class="title">Witaj!</h1>
+    <div class="paragrapg introduction">
+      Serwis ten jest projektem szkoleniowym zrealizowanym w celu doskonalenia umiejętności tworzenia
+      alpikacji internetowych z wykorzystaniem frameworka <span class="important">Angular 9</span>.
+      <br>
+      Do wizualizacji danych użytko biblioteki <span class="important">D3.js 4.0.</span>
+      <br>
+      Stylowanie wykonane z wykorzystaniem bibliteki <span class="important">Bulma</span> oraz preprocesora <span class="important">LESS</span>.
+      <br>
+      Strona posiada także prosty backend napisany w <span class="important">Django REST Framework</span> w celu bezpiecznego przechowywania
+      kluczy prywatnych oraz uniknięcia ograniczeń CORS.
+    </div>
+    <div class="paragrapg sources">
+      <dl>
+        Aplikacja wykorzystuje następujące API do pobierania aktualnych oraz historycznych danych:
+        <li><span class="important">AKCJE</span> - kursy bieżące: <a href="https://iexcloud.io/docs/api/"><span class="important">IEX Cloud API</span></a></li>
+        <li><span class="important">AKCJE</span> - dane historyczne oraz <span class="important">PARY WALUTOWE</span> - kursy bieżące oraz dane historyczne: <a href="https://finnhub.io/"><span class="important">Finnhub Stock API</span></a></li>
+        <li><span class="important">INDEKSY</span> - kursy bieżące oraz dane historyczne: <a href="https://currency.com/api"><span class="important">CURRENCY.COM</span></a></li>
+        <li><span class="important">ETFy</span> - kursy bieżące oraz dane historyczne: <a href="https://twelvedata.com/docs"><span class="important">TwelveData</span></a></li>
+        <li><span class="important">KRYPTOWALUTY</span> - dane historyczne: <a href="https://www.coingecko.com/en/api"><span class="important">CoinGecko</span></a></li>
+        <li><span class="important">WIADOMOŚCI</span>: <a href="https://newsapi.org/"><span class="important">NewsAPI</span></a></li>
+      </dl>
+    </div>
+    <div class="paragrapg problems">
+      Wszystkie wymienione źródła są darmowe lub posiadają darmowy dostęp dla niekomercyjnych użytkowników.
+      <br>
+      Wiąże się to niestety z faktem, że wykorzystywane API nie są niezawodne. Posiadają one albo limity żądań na jednostkę czasu
+      albo nie gwarantują płynności działania. Również aktualizacja danych w czasie rzeczywistym w przypadku niektórych serwerów
+      jest mocno umowna (aplikacja pobiera aktualne ceny zawsze co 60s, jednak nie wszystkie źródła aktualizują je z taką częstotliwością).
+      Na stronie mogą zatem pojawiać się sporadyczne problemy z wyświetlaniem niektórych elementów na skutek wykorzystania limitu
+       danych (limity są minutowe oraz dobowe - te drugie ciężko przekroczyć) lub problemów z nawiązaniem połączenia.
+    </div>
+    <div class="paragrapg repo">
+      <a href="https://github.com/MarcelDrugi/rate"><b>Repozytorium projektu</b></a>
+    </div>
+    <div class="paragrapg final">
+      Jeśli jakimś sposobem trafiłeś tutaj przypadkiem pamiętaj, że portal jest tylko szkoleniowym projektem programistycznym.
+    </div>
+  </div>
+</div>

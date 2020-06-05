@@ -28,6 +28,7 @@ class StockCurrentPrice(APIView):
         price = self.get_price(kwargs['shortcut'])
         return Response(price)
 
+
 class StockHistoricalPrice(APIView):
     def get_historical_price(self, shortcut, interval, begin, end):
         API_KEY = 'br3663nrh5rai6tgf4o0'

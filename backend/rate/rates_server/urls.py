@@ -23,7 +23,7 @@ urlpatterns = [
     path(
         'indexes/current/<str:shortcut>',
         views.IndexCurrentPrice.as_view(),
-        name='index_currency'
+        name='index_current'
     ),
     path(
         'indexes/historical/<str:shortcut>/<str:interval>/<str:limit>',
@@ -38,7 +38,7 @@ urlpatterns = [
     path(
         'etfs/historical/<str:shortcut>/<str:interval>/<str:limit>',
         views.ETFHistoricalPrice.as_view(),
-        name='etf_current'
+        name='etf_historical'
     ),
     path(
         'currencies/info/',
@@ -73,3 +73,4 @@ urlpatterns = [
     ),
     path('news/current/', views.News.as_view(), name='news'),
 ]
+

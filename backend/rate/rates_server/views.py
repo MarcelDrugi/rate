@@ -1,5 +1,4 @@
 import requests
-from django.shortcuts import render
 from rest_framework.response import Response
 from django.views.generic import TemplateView
 from rest_framework.views import APIView
@@ -39,7 +38,6 @@ class StockHistoricalPrice(APIView):
             'from': begin,
             'to': end,
             'token': API_KEY
-
         }
         return requests.get(url, params=params).json()
 
@@ -163,7 +161,7 @@ class CurrencyCurrentPrice(APIView):
         url = 'https://finnhub.io/api/v1/forex/candle'
         params = {
             'symbol': shortcut,
-            'resolution': 1,
+            'resolution': '1',
             'from': begin,
             'to': end,
             'token': API_KEY,
@@ -267,3 +265,4 @@ class News(APIView):
     def get(self, request, **kwargs):
         news = self.get_news()
         return Response(news)
+

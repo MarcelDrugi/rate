@@ -1,5 +1,5 @@
 # Rate
-#####A web application that allows you to view current and historical stock exchange rates.
+##### A web application that allows you to view current and historical stock exchange rates.
 
  **Live:**  [http://rate.pythonanywhere.com/](http://rate.pythonanywhere.com/)
 <br><br>
@@ -29,6 +29,7 @@
 
 
 ##### The app should be launched at:
+
     http://127.0.0.1:8000/
 
 <br>
@@ -57,13 +58,16 @@ The following technologies were used to create the app:
 - **Bulma & Bulma-Extensions & LESS** used to create styles.
 
 
+
 ### Backend
 
 The site has a simple backend created using Python frameworks: **Django** and **Django REST Framework**. 
 <br>
 Backend created to securely store API keys and avoid CORS restrictions.
 
+
 ### The app uses the following public APIs:
+
 
 - [IEX Cloud API](https://iexcloud.io/docs/api/)
 - [Finnhub Stock API](https://finnhub.io/)

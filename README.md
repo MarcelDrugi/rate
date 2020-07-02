@@ -15,16 +15,10 @@
     source venv/bin/activate
 ###### 5. Install requirements:
     pip3 install -r  requirements.txt
-###### 6. Create database for the project. <br>You can use any SQL management system, but you need to install it into venv.<br> From requirements.txt you have already installed mySQL. If you want to use it: 
-    mysql -u [your_username] -p
-###### 7a. Create  <span style="color:black">.env</span> file in <span style="color:black">/rate/backend/rate/rate</span> (the directory that contains <span style="color:black">settings.py</span> file).<br>
-###### 7b. To the <span style="color:black">.env</span>  file enter settings of the database you created and some secret key. <br> For mySQL the file should looks like:
+###### 6a. Create  <span style="color:black">.env</span> file in <span style="color:black">/rate/backend/rate/rate</span> (the directory that contains <span style="color:black">settings.py</span> file).<br>
+###### 6b. To the <span style="color:black">.env</span> file enter some secret key. <br> The file should looks like:
     SECRET_KEY=your_secret_key
-    ENGINE=django.db.backends.mysql
-    DATABASE_NAME=name_of_created_databas
-    DATABASE_USER=username
-    DATABASE_PASSWORD=password
-###### 8. Go to the project main directory(<span style="color:black">/rate/backend/rate</span>) and run server:
+###### 7. Go to the project main directory(<span style="color:black">/rate/backend/rate</span>) and run server:
     python3 manage.py runserver
 
 
@@ -36,7 +30,7 @@
 ## 
 # <span style="color:green"> Modify the application </span>
 
-###### 1. Follow steps 1-7b from the <span style="color:red"><i>Running the application</i></span> paragraph.
+###### 1. Follow steps 1-6b from the <span style="color:red"><i>Running the application</i></span> paragraph.
 ###### 2. Go to frontend project main directory (<span style="color:black">/rate/frontend/rate</span>) and install dependencies:
     npm install
 ##### Now the project is ready for modification. Work with the project should look like this:

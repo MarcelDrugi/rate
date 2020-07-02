@@ -32,8 +32,10 @@
 
     http://127.0.0.1:8000/
 
+
 ## 
 # <span style="color:green"> Modify the application </span>
+
 ###### 1. Follow steps 1-7b from the <span style="color:red"><i>Running the application</i></span> paragraph.
 ###### 2. Go to frontend project main directory (<span style="color:black">/rate/frontend/rate</span>) and install dependencies:
     npm install
@@ -47,7 +49,7 @@
 ###### 5. See the modifications at: 
     http://127.0.0.1:8000/
 
-<br>
+##
 # Application information
 ### Frontend
 

@@ -2,6 +2,7 @@ import requests
 from rest_framework.response import Response
 from django.views.generic import TemplateView
 from rest_framework.views import APIView
+from rest_framework import status
 
 '''
 API keys are intentionally left available to familiarize yourself with all 
@@ -25,7 +26,10 @@ class StockCurrentPrice(APIView):
 
     def get(self, request, **kwargs):
         price = self.get_price(kwargs['shortcut'])
-        return Response(price)
+        return Response(
+            price,
+            status=status.HTTP_200_OK
+        )
 
 
 class StockHistoricalPrice(APIView):
@@ -48,7 +52,10 @@ class StockHistoricalPrice(APIView):
             kwargs['from'],
             kwargs['to'],
         )
-        return Response(prices)
+        return Response(
+            prices,
+            status=status.HTTP_200_OK
+        )
 
 
 class TopBarPrice(APIView):
@@ -65,7 +72,10 @@ class TopBarPrice(APIView):
         prices = self.get_historical_price(
             kwargs['shortcut'],
         )
-        return Response(prices)
+        return Response(
+            prices,
+            status=status.HTTP_200_OK
+        )
 
 
 class IndexCurrentPrice(APIView):
@@ -81,7 +91,10 @@ class IndexCurrentPrice(APIView):
         prices = self.get_current_price(
             kwargs['shortcut'],
         )
-        return Response(prices)
+        return Response(
+            prices,
+            status=status.HTTP_200_OK
+        )
 
 
 class IndexHistoricalPrice(APIView):
@@ -100,7 +113,10 @@ class IndexHistoricalPrice(APIView):
             kwargs['interval'],
             kwargs['limit'],
         )
-        return Response(prices)
+        return Response(
+            prices,
+            status=status.HTTP_200_OK
+        )
 
 
 class ETFCurrentPrice(APIView):
@@ -117,7 +133,10 @@ class ETFCurrentPrice(APIView):
         prices = self.get_current_price(
             kwargs['shortcut'],
         )
-        return Response(prices)
+        return Response(
+            prices,
+            status=status.HTTP_200_OK
+        )
 
 
 class ETFHistoricalPrice(APIView):
@@ -138,7 +157,10 @@ class ETFHistoricalPrice(APIView):
             kwargs['interval'],
             kwargs['limit'],
         )
-        return Response(prices)
+        return Response(
+            prices,
+            status=status.HTTP_200_OK
+        )
 
 
 class CurrencyInfo(APIView):
@@ -152,7 +174,10 @@ class CurrencyInfo(APIView):
 
     def get(self, request, **kwargs):
         info = self.get_info()
-        return Response(info)
+        return Response(
+            info,
+            status=status.HTTP_200_OK
+        )
 
 
 class CurrencyCurrentPrice(APIView):
@@ -174,7 +199,10 @@ class CurrencyCurrentPrice(APIView):
             kwargs['begin'],
             kwargs['end'],
         )
-        return Response(prices)
+        return Response(
+            prices,
+            status=status.HTTP_200_OK
+        )
 
 
 class CurrencyHistoricalPrice(APIView):
@@ -198,7 +226,10 @@ class CurrencyHistoricalPrice(APIView):
             kwargs['begin'],
             kwargs['end'],
         )
-        return Response(prices)
+        return Response(
+            prices,
+            status=status.HTTP_200_OK
+        )
 
 
 class CryptoCurrentPrice(APIView):
@@ -210,7 +241,10 @@ class CryptoCurrentPrice(APIView):
         prices = self.get_current_price(
             kwargs['shortcut'],
         )
-        return Response(prices)
+        return Response(
+            prices,
+            status=status.HTTP_200_OK
+        )
 
 
 class CryptoHistoricalPrice(APIView):
@@ -231,7 +265,10 @@ class CryptoHistoricalPrice(APIView):
             kwargs['begin'],
             kwargs['end'],
         )
-        return Response(prices)
+        return Response(
+            prices,
+            status=status.HTTP_200_OK
+        )
 
 
 class CompanyInfo(APIView):
@@ -248,7 +285,10 @@ class CompanyInfo(APIView):
         info = self.get_company_info(
             kwargs['shortcut'],
         )
-        return Response(info)
+        return Response(
+            info,
+            status=status.HTTP_200_OK
+        )
 
 
 class News(APIView):
@@ -264,5 +304,8 @@ class News(APIView):
 
     def get(self, request, **kwargs):
         news = self.get_news()
-        return Response(news)
+        return Response(
+            news,
+            status=status.HTTP_200_OK
+        )
 

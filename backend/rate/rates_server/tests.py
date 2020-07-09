@@ -4,6 +4,11 @@ from rest_framework.test import APITestCase
 
 '''
 API views tests
+
+IMPORTANT!
+Sometimes tests may not work correct due to problems
+connecting to the external API.
+Than try again after min.
 '''
 
 
@@ -28,7 +33,7 @@ class StockHistoricalPriceTest(APITestCase):
             reverse(
                 'rates_server:stock_historical',
                 kwargs={
-                    'shortcut': 'LVUS',
+                    'shortcut': 'AAPL',
                     'interval': '1',
                     'from': 1572651390,
                     'to': 1572910590

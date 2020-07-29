@@ -5,8 +5,8 @@ from rest_framework.views import APIView
 from rest_framework import status
 
 '''
-API keys are intentionally left available to familiarize yourself with all 
-the functionality of the application.
+API keys are intentionally left visible to let you run app and familiarize
+with all the functionality of the application.
 '''
 
 
